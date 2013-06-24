@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/api_invoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:onClick="onClick"
+        android:text="@string/api_invoke" />
+
+    <Button
+        android:id="@+id/service_invoke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/api_invoke"
+        android:onClick="onClick"
+        android:text="@string/service_invoke" />
+
+    <EditText
+        android:id="@+id/tts_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/api_invoke"
+        android:layout_gravity="center_horizontal"
+        android:hint="@string/tts_hint" >
+    </EditText>
+
+    <Button
+        android:id="@+id/tts_play_now_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tts_text"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:text="@string/tts_play_now" />
+
+    <Button
+        android:id="@+id/tts_play_later_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tts_play_now_btn"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/tts_play_now_btn"
+        android:onClick="onClick"
+        android:text="@string/tts_play_later" />
+
+    <Button
+        android:id="@+id/stop_tts_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tts_play_now_btn"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/tts_play_later_btn"
+        android:onClick="onClick"
+        android:text="@string/tts_stop" />
+
+    <TextView
+        android:id="@+id/tts_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tts_play_now_btn"
+        android:layout_toRightOf="@+id/stop_tts_btn"
+        android:textColor="#FFFF0000" >
+    </TextView>
+
+    <Button
+        android:id="@+id/start_command_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tts_state"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:text="@string/start_command_mode" />
+
+    <Button
+        android:id="@+id/start_text_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/start_command_btn"
+        android:layout_gravity="center_horizontal"
+        android:layout_toRightOf="@+id/start_command_btn"
+        android:onClick="onClick"
+        android:text="@string/start_text_mode" />
+
+    <TextView
+        android:id="@+id/ttsbody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_command_btn" >
+    </TextView>
+
+    <WebView
+        android:id="@+id/result_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ttsbody" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/result_web" >
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </ScrollView>
+
+</RelativeLayout>

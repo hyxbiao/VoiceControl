@@ -1,0 +1,19 @@
+<resources>
+
+    <string name="app_name">VoiceControl</string>
+    <string name="api_invoke">API方式</string>
+    <string name="service_invoke">service方式</string>
+    <string name="tts_play_now">TTS Flush方式</string>
+    <string name="tts_play_later">tts 队列方式</string>
+    <string name="tts_hint">请输入TTS播报内容</string>
+    <string name="tts_stop">停止TTS</string>
+    <string name="start_command_mode">命令模式</string>
+    <string name="start_text_mode">文本模式</string>
+    <string name="start_commandservice_mode">命令模式启动service</string>
+    <string name="start_textservice_mode">文本模式启动service</string>
+    <string name="stop">停止</string>
+    <string name="destory">销毁</string>
+    <string name="voice_recognition">voice recognition</string>
+    <string name="speak_button">speak</string>
+    <string name="tts_error">TTS仅支持4.0以上系统</string>
+</resources>
