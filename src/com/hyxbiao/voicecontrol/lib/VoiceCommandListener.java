@@ -1,4 +1,4 @@
-package com.hyxbiao.speech.lib;
+package com.hyxbiao.voicecontrol.lib;
 
 public interface VoiceCommandListener {
 

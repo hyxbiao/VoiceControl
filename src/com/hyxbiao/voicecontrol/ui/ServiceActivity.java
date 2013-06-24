@@ -1,12 +1,11 @@
 
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.hyxbiao.speech.R;
-
+import com.hyxbiao.voicecontrol.R;
 
 import android.app.Activity;
 import android.content.ComponentName;

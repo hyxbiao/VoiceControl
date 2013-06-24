@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2012 Baidu Inc. All rights reserved.
  */
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -45,7 +45,7 @@ public final class LocationManager {
 	/** location listeners.*/
 	private ArrayList<LocationListener> mLocListeners;
 	/** 地图定位服务名称. 需要和manifest中的对应intent-filter中的action name一致.*/
-	private static final String SERVICE_NAME = "com.hyxbiao.speech.ui.location.service";
+	private static final String SERVICE_NAME = "com.hyxbiao.voicecontrol.ui.location.service";
 	/** 产品名称.*/
 	private static final String PRODUCT_NAME = "baiduvoice_android";
 	/** 坐标系.

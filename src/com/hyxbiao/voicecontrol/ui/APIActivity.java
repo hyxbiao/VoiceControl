@@ -1,10 +1,10 @@
 
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import com.baidu.android.speech.RecognitionListener;
 import com.baidu.android.speech.SpeechRecognizer;
-import com.hyxbiao.speech.R;
-import com.hyxbiao.speech.video.VideoManager;
+import com.hyxbiao.voicecontrol.R;
+import com.hyxbiao.voicecontrol.video.VideoManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;

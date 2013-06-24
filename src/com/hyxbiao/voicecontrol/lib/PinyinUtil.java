@@ -1,4 +1,4 @@
-package com.hyxbiao.speech.lib;
+package com.hyxbiao.voicecontrol.lib;
 
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;

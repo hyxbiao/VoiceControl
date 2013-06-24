@@ -1,12 +1,12 @@
 
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import com.baidu.android.speech.SpeechConfig;
 import com.baidu.android.speech.tts.TextToSpeech;
 import com.baidu.android.speech.tts.UtteranceProgressListener;
 import com.baidu.android.speech.ui.BaiduSpeechDialog;
 import com.baidu.android.speech.ui.DialogRecognitionListener;
-import com.hyxbiao.speech.R;
+import com.hyxbiao.voicecontrol.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

@@ -1,4 +1,4 @@
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hyxbiao.speech.R;
+import com.hyxbiao.voicecontrol.R;
 
 
 public class MyServiceTestActivity extends Activity implements OnClickListener {

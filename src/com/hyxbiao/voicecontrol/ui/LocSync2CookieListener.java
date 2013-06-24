@@ -2,12 +2,12 @@
  * Copyright (C) 2012 Baidu Inc. All rights reserved.
  */
 
-package com.hyxbiao.speech.ui;
+package com.hyxbiao.voicecontrol.ui;
 
 import com.baidu.android.speech.Location;
 import com.baidu.android.speech.SpeechConfig;
-import com.hyxbiao.speech.ui.LocationManager.LocationInfo;
-import com.hyxbiao.speech.ui.LocationManager.LocationListener;
+import com.hyxbiao.voicecontrol.ui.LocationManager.LocationInfo;
+import com.hyxbiao.voicecontrol.ui.LocationManager.LocationListener;
 
 import android.util.Log;
 

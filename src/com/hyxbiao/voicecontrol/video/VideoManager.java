@@ -1,4 +1,4 @@
-package com.hyxbiao.speech.video;
+package com.hyxbiao.voicecontrol.video;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,8 @@ import android.content.Context;
 
 import com.baidu.android.speech.tts.TextToSpeech;
 import com.baidu.android.speech.tts.UtteranceProgressListener;
-import com.hyxbiao.speech.lib.VoiceCommand;
-import com.hyxbiao.speech.lib.VoiceCommandListener;
+import com.hyxbiao.voicecontrol.lib.VoiceCommand;
+import com.hyxbiao.voicecontrol.lib.VoiceCommandListener;
 
 public class VideoManager extends VoiceCommand implements UtteranceProgressListener{
 
