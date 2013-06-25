@@ -1,7 +1,5 @@
 package com.hyxbiao.voicecontrol.video;
 
-import java.util.ArrayList;
-
 import android.content.Context;
 import android.os.Bundle;
 
