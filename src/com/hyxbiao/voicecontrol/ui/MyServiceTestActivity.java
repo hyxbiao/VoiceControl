@@ -15,7 +15,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hyxbiao.voicecontrol.R;
+import com.hyxbiao.voicecontrol.client.R;
 
 
 public class MyServiceTestActivity extends Activity implements OnClickListener {

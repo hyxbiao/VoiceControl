@@ -6,6 +6,7 @@ package com.hyxbiao.voicecontrol.protocol;
  */
 
 public class Packet {
+	public final static int HEAD_LEN			=	28;
 	public final static int VERSION				=	1;
 	
 	public final static int TARGET_UNKNOWN		=	0;

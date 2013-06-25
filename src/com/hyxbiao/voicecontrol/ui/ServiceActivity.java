@@ -5,7 +5,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.hyxbiao.voicecontrol.R;
+import com.hyxbiao.voicecontrol.client.R;
+
 
 import android.app.Activity;
 import android.content.ComponentName;

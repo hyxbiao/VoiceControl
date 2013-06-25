@@ -3,7 +3,7 @@ package com.hyxbiao.voicecontrol.ui;
 
 import com.baidu.android.speech.RecognitionListener;
 import com.baidu.android.speech.SpeechRecognizer;
-import com.hyxbiao.voicecontrol.R;
+import com.hyxbiao.voicecontrol.client.R;
 import com.hyxbiao.voicecontrol.video.VideoManager;
 
 import org.json.JSONArray;
