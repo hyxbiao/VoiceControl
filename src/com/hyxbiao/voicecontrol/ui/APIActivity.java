@@ -4,7 +4,7 @@ package com.hyxbiao.voicecontrol.ui;
 import com.baidu.android.speech.RecognitionListener;
 import com.baidu.android.speech.SpeechRecognizer;
 import com.hyxbiao.voicecontrol.client.R;
-import com.hyxbiao.voicecontrol.video.VideoManager;
+import com.hyxbiao.voicecontrol.command.VoiceCommandManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +44,7 @@ public class APIActivity extends Activity implements OnClickListener {
 
     private SpeechRecognizer mSpeechRecognizer;
     
-    private VideoManager  mVideoManager;
+    private VoiceCommandManager  mVideoManager;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -67,7 +67,7 @@ public class APIActivity extends Activity implements OnClickListener {
         mSpeechRecognizer = SpeechRecognizer.getInstance(this);
         mSpeechRecognizer.setRecognitionListener(mMyRecognitionListener);
 
-        mVideoManager = new VideoManager(getApplicationContext());
+        mVideoManager = new VoiceCommandManager(getApplicationContext());
     }
 
     @Override

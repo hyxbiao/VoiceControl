@@ -24,12 +24,14 @@ public class Packet {
 	public final static int CMD_SYSTEM_VOLUME_DOWN	=	4;
 	
 	public final static int CMD_SYSTEM_OPEN			=	10;
+	public final static int CMD_SYSTEM_OPEN_QQ		=	11;
+	public final static int CMD_SYSTEM_OPEN_QIYI	=	12;
 	
 	//command for video
-	public final static int CMD_VIDEO_UNKNOWN		=	0;
-	public final static int CMD_VIDEO_PLAY			=	1;	
-	public final static int CMD_VIDEO_PAUSE			=	2;	
-	public final static int CMD_VIDEO_PREVIOUS		=	3;	
-	public final static int CMD_VIDEO_NEXT			=	4;	
-	public final static int CMD_VIDEO_VOLUME		=	5;	
+	public final static int CMD_VIDEO_UNKNOWN		=	100;
+	public final static int CMD_VIDEO_PLAY			=	101;	
+	public final static int CMD_VIDEO_PAUSE			=	102;	
+	public final static int CMD_VIDEO_PREVIOUS		=	103;	
+	public final static int CMD_VIDEO_NEXT			=	104;	
+	public final static int CMD_VIDEO_VOLUME		=	105;	
 }
