@@ -25,7 +25,9 @@ public class VoiceControlClient implements Runnable {
 	public final static String KEY_BODYLEN = "bodylen";
 	public final static String KEY_PARAMS = "params";
 	
-	private String IP = "127.0.0.1";
+//	private String IP = "127.0.0.1";
+//	private String IP = "192.168.1.101";
+	private String IP = "192.168.1.102";
 	private int PORT = 8300;
 	
 	private Socket mSocket;

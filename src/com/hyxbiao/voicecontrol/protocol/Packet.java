@@ -15,6 +15,7 @@ public class Packet {
 	public final static int TYPE_UNKNOWN			=	0;
 	public final static int TYPE_SYSTEM				=	1;
 	public final static int TYPE_VIDEO				=	2;
+	public final static int TYPE_QQ					=	3;
 	
 	//command for system
 	public final static int CMD_SYSTEM_UNKNOWN		=	0;
@@ -34,4 +35,12 @@ public class Packet {
 	public final static int CMD_VIDEO_PREVIOUS		=	103;	
 	public final static int CMD_VIDEO_NEXT			=	104;	
 	public final static int CMD_VIDEO_VOLUME		=	105;	
+	
+	
+	public final static int CMD_QQ_VIDEO_UNKNOWN	=	200;
+	public final static int CMD_QQ_VIDEO_BAOBAO		=	201;
+	public final static int CMD_QQ_VIDEO_SCREEN_MAX	=	202;
+	public final static int CMD_QQ_VIDEO_SCREEN_MIN	=	203;
+	public final static int CMD_QQ_VIDEO_CLOSE		=	204;
+	public final static int CMD_QQ_VIDEO_TEST		=	210;
 }

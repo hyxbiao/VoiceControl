@@ -37,6 +37,15 @@ public class VoiceCommandManager implements UtteranceProgressListener{
         mVoiceCommand.addCommand("放大点声音", Packet.CMD_SYSTEM_VOLUME_UP, systemCommandListenner);
         mVoiceCommand.addCommand("打开QQ", Packet.CMD_SYSTEM_OPEN_QQ, systemCommandListenner);
         mVoiceCommand.addCommand("打开奇艺", Packet.CMD_SYSTEM_OPEN_QIYI, systemCommandListenner);
+        mVoiceCommand.addCommand("退出", Packet.CMD_SYSTEM_HOME, systemCommandListenner);
+        
+        VoiceCommandListener qqCommandListenner = new QQCommandListener();
+        mVoiceCommand.addCommand("跟宝宝视频", Packet.CMD_QQ_VIDEO_BAOBAO, qqCommandListenner);
+        mVoiceCommand.addCommand("跟彪视频", Packet.CMD_QQ_VIDEO_TEST, qqCommandListenner);
+        mVoiceCommand.addCommand("放大屏幕", Packet.CMD_QQ_VIDEO_SCREEN_MAX, qqCommandListenner);
+        mVoiceCommand.addCommand("放小屏幕", Packet.CMD_QQ_VIDEO_SCREEN_MIN, qqCommandListenner);
+        mVoiceCommand.addCommand("挂掉视频", Packet.CMD_QQ_VIDEO_CLOSE, qqCommandListenner);
+        
     } 
     
 	public void execute(String txt) {
