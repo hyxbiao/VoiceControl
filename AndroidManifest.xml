@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hyxbiao.voicecontrol.client"
     android:versionCode="1"
@@ -52,6 +53,11 @@
                 </action>
             </intent-filter>
         </service>
+
+        <activity
+            android:name="com.hyxbiao.voicecontrol.client.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
     </application>
 
 </manifest>

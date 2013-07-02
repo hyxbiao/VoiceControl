@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">VoiceControl</string>
@@ -16,4 +17,8 @@
     <string name="voice_recognition">voice recognition</string>
     <string name="speak_button">speak</string>
     <string name="tts_error">TTS仅支持4.0以上系统</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
