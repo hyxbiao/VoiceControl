@@ -27,7 +27,7 @@ public class VoiceControlClient implements Runnable {
 	
 //	private String IP = "127.0.0.1";
 //	private String IP = "192.168.1.101";
-	private String IP = "192.168.1.102";
+	private String IP = "192.168.1.106";
 	private int PORT = 8300;
 	
 	private Socket mSocket;
