@@ -55,7 +55,7 @@
         </service>
 
         <activity
-            android:name="com.hyxbiao.voicecontrol.client.MainActivity"
+            android:name="com.hyxbiao.voicecontrol.ui.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
     </application>
