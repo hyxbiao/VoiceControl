@@ -17,11 +17,8 @@ public class QQControlFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// construct the RelativeLayout
-		
-//		RelativeLayout v = new RelatieLayout(getActivity());
-//		return v;
-		return inflater.inflate(R.layout.qq_content, container);
+		getActivity().setTitle(getResources().getString(R.string.qq_control_title));
+		return inflater.inflate(R.layout.qq_content, null);
 	}
 	
 	@Override

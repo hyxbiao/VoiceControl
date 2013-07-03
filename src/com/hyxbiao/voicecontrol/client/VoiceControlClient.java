@@ -6,6 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -27,8 +28,8 @@ public class VoiceControlClient implements Runnable {
 	
 //	private String IP = "127.0.0.1";
 //	private String IP = "192.168.1.101";
-	private String IP = "192.168.1.106";
-	private int PORT = 8300;
+	private String mIp = "192.168.1.106";
+	private int mPort = 8300;
 	
 	private Socket mSocket;
 	private Bundle mBundle;
@@ -40,7 +41,9 @@ public class VoiceControlClient implements Runnable {
 	public void run() {
 		
 		try {
-			mSocket = new Socket(IP, PORT);
+			mIp = InetAddress.getLocalHost().getHostAddress();
+			Log.d(TAG, "ip: " + mIp + ", port: " + mPort);
+			mSocket = new Socket(mIp, mPort);
 			DataOutputStream out = new DataOutputStream(mSocket.getOutputStream());
 			out.writeInt(mBundle.getInt(KEY_VERSION));
 			out.writeInt(mBundle.getInt(KEY_TARGET));

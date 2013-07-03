@@ -67,7 +67,7 @@ public class APIActivity extends Activity implements OnClickListener {
         mSpeechRecognizer = SpeechRecognizer.getInstance(this);
         mSpeechRecognizer.setRecognitionListener(mMyRecognitionListener);
 
-        mVideoManager = new VoiceCommandManager(getApplicationContext());
+        mVideoManager = ((MyApp)getApplicationContext()).getCommandManager();
     }
 
     @Override

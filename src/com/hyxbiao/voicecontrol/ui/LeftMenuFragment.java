@@ -22,10 +22,11 @@ public class LeftMenuFragment extends ListFragment {
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
-		String[] colors = getResources().getStringArray(R.array.left_menu);
-		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(getActivity(), 
-				android.R.layout.simple_list_item_1, android.R.id.text1, colors);
-		setListAdapter(colorAdapter);
+		
+		String[] items = getResources().getStringArray(R.array.left_menu);
+		ArrayAdapter<String> menuAdapter = new ArrayAdapter<String>(getActivity(), 
+				android.R.layout.simple_list_item_1, android.R.id.text1, items);
+		setListAdapter(menuAdapter);
 	}
 
 	@Override
@@ -33,9 +34,11 @@ public class LeftMenuFragment extends ListFragment {
 		Fragment newContent = null;
 		switch (position) {
 		case 0:
-			newContent = new SystemFragment();
+			newContent = new SystemControlFragment();
+			break;
 		case 1:
 			newContent = new QQControlFragment();
+			break;
 		case 2:
 			newContent = new SettingFragment();
 			break;

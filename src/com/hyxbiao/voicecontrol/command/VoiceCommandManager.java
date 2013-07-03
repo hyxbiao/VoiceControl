@@ -5,17 +5,13 @@ import android.os.Bundle;
 
 import com.baidu.android.speech.tts.TextToSpeech;
 import com.baidu.android.speech.tts.UtteranceProgressListener;
+import com.hyxbiao.voicecontrol.client.R;
 import com.hyxbiao.voicecontrol.client.VoiceControlClient;
 import com.hyxbiao.voicecontrol.exception.UnRecognitionException;
 import com.hyxbiao.voicecontrol.protocol.Packet;
 
 public class VoiceCommandManager implements UtteranceProgressListener{
 
-	private final static int CMD_UNKNOWN	= 0;
-	private final static int CMD_PLAY		= 1;
-	private final static int CMD_PAUSE		= 2;
-	private final static int CMD_PREVIOUS	= 3;
-	private final static int CMD_NEXT		= 4;
 	
     private TextToSpeech mTextToSpeech;
     private VoiceCommand mVoiceCommand;
@@ -26,25 +22,42 @@ public class VoiceCommandManager implements UtteranceProgressListener{
         mTextToSpeech.setOnUtteranceProgressListener(this);
         
         mVoiceCommand = new VoiceCommand();
-        mVoiceCommandListener = new DefaultCommandListener();
-        mVoiceCommand.addCommand("上一集", Packet.CMD_VIDEO_PREVIOUS, mVoiceCommandListener);
-        mVoiceCommand.addCommand("下一集", Packet.CMD_VIDEO_NEXT, mVoiceCommandListener);
-        mVoiceCommand.addCommand("播放", Packet.CMD_VIDEO_PLAY, mVoiceCommandListener);
-        mVoiceCommand.addCommand("暂停", Packet.CMD_VIDEO_PAUSE, mVoiceCommandListener);
         
         VoiceCommandListener systemCommandListenner = new SystemCommandListener();
-        mVoiceCommand.addCommand("放小点声音", Packet.CMD_SYSTEM_VOLUME_DOWN, systemCommandListenner);
-        mVoiceCommand.addCommand("放大点声音", Packet.CMD_SYSTEM_VOLUME_UP, systemCommandListenner);
-        mVoiceCommand.addCommand("打开QQ", Packet.CMD_SYSTEM_OPEN_QQ, systemCommandListenner);
-        mVoiceCommand.addCommand("打开奇艺", Packet.CMD_SYSTEM_OPEN_QIYI, systemCommandListenner);
-        mVoiceCommand.addCommand("退出", Packet.CMD_SYSTEM_HOME, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.system_volume_down), Packet.CMD_SYSTEM_VOLUME_DOWN, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.system_volume_up), Packet.CMD_SYSTEM_VOLUME_UP, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_open), Packet.CMD_SYSTEM_OPEN_QQ, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qiyi_open), Packet.CMD_SYSTEM_OPEN_QIYI, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.system_home), Packet.CMD_SYSTEM_HOME, systemCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.system_back), Packet.CMD_SYSTEM_BACK, systemCommandListenner);
+        
+        mVoiceCommandListener = new DefaultCommandListener();
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.video_previous), Packet.CMD_VIDEO_PREVIOUS, mVoiceCommandListener);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.video_next), Packet.CMD_VIDEO_NEXT, mVoiceCommandListener);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.video_play), Packet.CMD_VIDEO_PLAY, mVoiceCommandListener);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.video_pause), Packet.CMD_VIDEO_PAUSE, mVoiceCommandListener);
         
         VoiceCommandListener qqCommandListenner = new QQCommandListener();
-        mVoiceCommand.addCommand("跟宝宝视频", Packet.CMD_QQ_VIDEO_BAOBAO, qqCommandListenner);
-        mVoiceCommand.addCommand("跟彪视频", Packet.CMD_QQ_VIDEO_TEST, qqCommandListenner);
-        mVoiceCommand.addCommand("放大屏幕", Packet.CMD_QQ_VIDEO_SCREEN_MAX, qqCommandListenner);
-        mVoiceCommand.addCommand("放小屏幕", Packet.CMD_QQ_VIDEO_SCREEN_MIN, qqCommandListenner);
-        mVoiceCommand.addCommand("挂掉视频", Packet.CMD_QQ_VIDEO_CLOSE, qqCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_video_baobao), Packet.CMD_QQ_VIDEO_BAOBAO, qqCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_video_test), Packet.CMD_QQ_VIDEO_TEST, qqCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_video_screen_max), Packet.CMD_QQ_VIDEO_SCREEN_MAX, qqCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_video_screen_min), Packet.CMD_QQ_VIDEO_SCREEN_MIN, qqCommandListenner);
+        mVoiceCommand.addCommand(
+        		context.getString(R.string.qq_video_close), Packet.CMD_QQ_VIDEO_CLOSE, qqCommandListenner);
         
     } 
     
