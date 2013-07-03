@@ -2,7 +2,7 @@
 <resources>
     <string-array name="left_menu">
         <item >系统</item>
-        <item >QQ视频</item>
+        <item >QQ</item>
         <item >设置</item>
     </string-array>
     

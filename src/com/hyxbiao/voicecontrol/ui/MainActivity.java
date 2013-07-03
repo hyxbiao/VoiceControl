@@ -1,28 +1,23 @@
 package com.hyxbiao.voicecontrol.ui;
 
+import com.actionbarsherlock.view.MenuItem;
 import com.hyxbiao.voicecontrol.client.R;
-import com.hyxbiao.voicecontrol.client.R.layout;
-import com.hyxbiao.voicecontrol.client.R.menu;
+import com.hyxbiao.voicecontrol.command.VoiceCommandManager;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
-import android.view.Choreographer.FrameCallback;
-import android.view.Menu;
+
 
 public class MainActivity extends SlidingFragmentActivity {
 
+	private final static String TAG = "MainActivity";
 	private Fragment mContent;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.activity_main);
-		
+//		setTheme(R.style.Theme_Sherlock_Light_DarkActionBar);
 		super.onCreate(savedInstanceState);
 
 		setTitle(R.string.menu_name);
@@ -32,7 +27,7 @@ public class MainActivity extends SlidingFragmentActivity {
 			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
 		
 		if(mContent == null) {
-			mContent = new SystemFragment();
+			mContent = new SystemControlFragment();
 		}
 		// set the Above View
 		setContentView(R.layout.content_frame);
@@ -57,12 +52,26 @@ public class MainActivity extends SlidingFragmentActivity {
 		sm.setSlidingEnabled(true);
 		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 
-//		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		MyApp myApp = (MyApp) getApplicationContext();
+		VoiceCommandManager commandManager = new VoiceCommandManager(myApp);
+		myApp.setCommandManager(commandManager);
 	}
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			toggle();
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	public void switchContent(Fragment fragment) {
@@ -73,6 +82,4 @@ public class MainActivity extends SlidingFragmentActivity {
 		.commit();
 		getSlidingMenu().showContent();
 	}
-
-
 }

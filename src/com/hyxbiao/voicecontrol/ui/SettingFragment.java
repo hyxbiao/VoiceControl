@@ -17,11 +17,8 @@ public class SettingFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		// construct the RelativeLayout
-		
-//		RelativeLayout v = new RelatieLayout(getActivity());
-//		return v;
-		return inflater.inflate(R.layout.setting, container);
+		getActivity().setTitle(getResources().getString(R.string.setting_title));
+		return inflater.inflate(R.layout.setting, null);
 	}
 	
 	@Override

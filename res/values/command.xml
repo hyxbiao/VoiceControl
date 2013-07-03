@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="video_previous">上一集</string>
+    <string name="video_next">下一集</string>
+    <string name="video_play">播放</string>
+    <string name="video_pause">暂停</string>
+    <string name="system_volume_down">放小点声音</string>
+    <string name='system_volume_up'>放大点声音</string>
+    <string name="system_home">退出</string>
+    <string name="system_back">返回</string>
+    <string name="qq_video_baobao">跟宝宝视频</string>
+    <string name="qq_video_test">跟彪视频</string>
+    <string name="qq_video_screen_max">放大屏幕</string>
+    <string name="qq_video_screen_min">放小屏幕</string>
+    <string name="qq_video_close">挂断视频</string>
+    <string name="qq_open">打开QQ</string>
+    <string name="qiyi_open">打开奇艺</string>
+    
+</resources>

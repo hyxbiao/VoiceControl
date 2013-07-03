@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_frame"
+    style="@style/MainTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_volume_up"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignBaseline="@+id/btn_volume_down"
+        android:layout_alignBottom="@+id/btn_volume_down"
+        android:layout_alignLeft="@+id/btn_exit"
+        android:text="@string/system_volume_up" />
+
+    <Button
+        android:id="@+id/btn_exit"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btn_volume_up"
+        android:layout_marginLeft="38dp"
+        android:layout_marginTop="98dp"
+        android:layout_toRightOf="@+id/btn_back"
+        android:text="@string/system_home" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignBaseline="@+id/btn_exit"
+        android:layout_alignBottom="@+id/btn_exit"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="54dp"
+        android:text="@string/system_back" />
+
+    <Button
+        android:id="@+id/btn_volume_down"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="52dp"
-        android:layout_marginTop="72dp"
-        android:text="Button" />
+        android:layout_alignRight="@+id/btn_back"
+        android:layout_marginTop="200dp"
+        android:text="@string/system_volume_down" />
 
 </RelativeLayout>
