@@ -10,10 +10,12 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.hyxbiao.voicecontrol.protocol.Packet;
+import com.hyxbiao.voicecontrol.ui.MyApp;
 
 public class VoiceControlClient implements Runnable {
 	private final static String TAG = "VoiceControlClient";
@@ -32,10 +34,13 @@ public class VoiceControlClient implements Runnable {
 	private int mPort = 8300;
 	
 	private Socket mSocket;
+	private MyApp mMyApp = null;
 	private Bundle mBundle;
 	
-	public VoiceControlClient(Bundle bundle) {
+	public VoiceControlClient(Context context, Bundle bundle) {
 		mBundle = bundle;
+		mMyApp = (MyApp) context;
+		mIp = mMyApp.getServerIp();
 	}
 	@Override
 	public void run() {

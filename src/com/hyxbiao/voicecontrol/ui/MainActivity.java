@@ -6,8 +6,12 @@ import com.hyxbiao.voicecontrol.command.VoiceCommandManager;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.format.Formatter;
 
 
 public class MainActivity extends SlidingFragmentActivity {
@@ -54,9 +58,20 @@ public class MainActivity extends SlidingFragmentActivity {
 
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
+		init();
+	}
+	
+	private void init() {
 		MyApp myApp = (MyApp) getApplicationContext();
+		
 		VoiceCommandManager commandManager = new VoiceCommandManager(myApp);
 		myApp.setCommandManager(commandManager);
+		
+		WifiManager wifiMgr = (WifiManager) myApp.getSystemService(Context.WIFI_SERVICE);
+		WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+		int ip = wifiInfo.getIpAddress();
+		String ipAddress = Formatter.formatIpAddress(ip);
+		myApp.setServerIp(ipAddress);
 	}
 	@Override
 	public void onSaveInstanceState(Bundle outState) {

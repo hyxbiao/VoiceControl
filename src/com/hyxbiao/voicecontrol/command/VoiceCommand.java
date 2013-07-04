@@ -8,15 +8,18 @@ import com.hyxbiao.voicecontrol.exception.UnRecognitionException;
 import com.hyxbiao.voicecontrol.lib.Algorithm;
 import com.hyxbiao.voicecontrol.lib.PinyinUtil;
 
+import android.content.Context;
 import android.util.Log;
 
 public class VoiceCommand {
 	private static final String TAG = "VoiceCommand";
 	
 	protected HashMap<String, Command> mCommandMap;
+	private Context mContext = null;
 	
-	public VoiceCommand() {
+	public VoiceCommand(Context context) {
 		mCommandMap = new HashMap<String, Command>();
+		mContext = context;
 	}
 	
 	public void addCommand(String desc, int code, VoiceCommandListener listener) {
@@ -33,7 +36,7 @@ public class VoiceCommand {
 			}
 			cmd = mCommandMap.get(desc);
 		}
-		cmd.execute();
+		cmd.execute(mContext);
 	}
 	
 	private String recognize(String txt) {
@@ -76,8 +79,8 @@ public class VoiceCommand {
 		public String getPinyin() {
 			return mPinyin;
 		}
-		public void execute() {
-			mListener.onExecute(mCmd, mCode);
+		public void execute(Context context) {
+			mListener.onExecute(context, mCmd, mCode);
 		}
 	}
 }
