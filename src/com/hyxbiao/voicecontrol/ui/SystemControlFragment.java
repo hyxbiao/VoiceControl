@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -31,8 +32,11 @@ public class SystemControlFragment extends Fragment implements OnClickListener, 
     
     private Button mButtonCursor = null;
     private RelativeLayout.LayoutParams mCenterCursorParams = null;
-    private int _xDelta;
-    private int _yDelta;
+    private int mLastX;
+    private int mLastY;
+    private boolean mIsGetRawPos = false;
+    private Rect mButtonCursorRawPos = new Rect();
+    private int mMaxSize = 40;
     
 	public SystemControlFragment() { 
 		setRetainInstance(true);
@@ -53,8 +57,18 @@ public class SystemControlFragment extends Fragment implements OnClickListener, 
 		
 		mButtonCursor = (Button) v.findViewById(R.id.btn_cursor);
 		mButtonCursor.setOnTouchListener(this);
-		mCenterCursorParams = (LayoutParams) mButtonCursor.getLayoutParams();
-		Log.d(TAG, "button position: " + mCenterCursorParams.leftMargin + "," + mCenterCursorParams.topMargin);
+		mButtonCursor.setOnClickListener(this);
+//		mCenterCursorParams = (LayoutParams) mButtonCursor.getLayoutParams();
+//		mCenterCursorParams.addRule(RelativeLayout.CENTER_VERTICAL);
+//		Log.d(TAG, "button position1: " + mCenterCursorParams.leftMargin + "," + mCenterCursorParams.topMargin);
+//		mButtonCursor.setLayoutParams(mCenterCursorParams);
+//		mCenterCursorParams = (LayoutParams) mButtonCursor.getLayoutParams();
+//		Log.d(TAG, "button position2: " + mCenterCursorParams.leftMargin + "," + mCenterCursorParams.topMargin);
+//
+//		Log.d(TAG, "1left:" + mButtonCursor.getLeft());
+//		Log.d(TAG, "1right:" + mButtonCursor.getRight());
+//		Log.d(TAG, "1top:" + mButtonCursor.getTop());
+//		Log.d(TAG, "1bottom:" + mButtonCursor.getBottom());
 //		return new DrawingView(getActivity().getApplicationContext());
 		return v;
 	}
@@ -96,28 +110,51 @@ public class SystemControlFragment extends Fragment implements OnClickListener, 
 //            }
 //        }
 //		return false;
+		if(!mIsGetRawPos) {
+			mButtonCursorRawPos.left = v.getLeft();
+			mButtonCursorRawPos.right = v.getRight();
+			mButtonCursorRawPos.top = v.getTop();
+			mButtonCursorRawPos.bottom = v.getBottom();
+			mIsGetRawPos = true;
+		}
+
 	    final int X = (int) event.getRawX();
 	    final int Y = (int) event.getRawY();
+//	    Log.d(TAG, "onTouch, x:" + X + ", y:" + Y);
 	    switch (event.getAction() & MotionEvent.ACTION_MASK) {
 	        case MotionEvent.ACTION_DOWN:
-	            RelativeLayout.LayoutParams lParams = (RelativeLayout.LayoutParams) mButtonCursor.getLayoutParams();
-	            _xDelta = X - lParams.leftMargin;
-	            _yDelta = Y - lParams.topMargin;
+	            mLastX = X;
+	            mLastY = Y;
+	            Log.d(TAG, "onTouch Down, x:" + X + ", y:" + Y);
 	            break;
 	        case MotionEvent.ACTION_UP:
+	        	v.layout(mButtonCursorRawPos.left, mButtonCursorRawPos.top, 
+	        			mButtonCursorRawPos.right, mButtonCursorRawPos.bottom);
 	            break;
 	        case MotionEvent.ACTION_POINTER_DOWN:
 	            break;
 	        case MotionEvent.ACTION_POINTER_UP:
 	            break;
 	        case MotionEvent.ACTION_MOVE:
-	            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mButtonCursor.getLayoutParams();
-	            layoutParams.leftMargin = X - _xDelta;
-	            layoutParams.topMargin = Y - _yDelta;
-	            mButtonCursor.setLayoutParams(layoutParams);
+	            int dx = X - mLastX;
+	            int dy = Y - mLastY;
+	            if(dx > mButtonCursorRawPos.left + mMaxSize - v.getLeft()) {
+	            	dx = mButtonCursorRawPos.left + mMaxSize - v.getLeft();
+	            } else if(dx < mButtonCursorRawPos.left - mMaxSize - v.getLeft()) {
+	            	dx = mButtonCursorRawPos.left - mMaxSize - v.getLeft();
+	            }
+	            if(dy > mButtonCursorRawPos.top + mMaxSize - v.getTop()) {
+	            	dy = mButtonCursorRawPos.top + mMaxSize - v.getTop();
+	            } else if(dy < mButtonCursorRawPos.top - mMaxSize - v.getTop()) {
+	            	dy = mButtonCursorRawPos.top - mMaxSize - v.getTop();
+	            }
+	            v.layout(v.getLeft()+dx, v.getTop()+dy, v.getRight()+dx, v.getBottom()+dy);
+	            mLastX = X;
+	            mLastY = Y;
+	            Log.d(TAG, "onTouch Move, x:" + X + ", y:" + Y);
 	            break;
 	    }
-	    return true;
+	    return false;
 	}
 	
 	class DrawingView extends SurfaceView {
@@ -147,3 +184,4 @@ public class SystemControlFragment extends Fragment implements OnClickListener, 
 
 	}
 }
+	

@@ -1,57 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content_frame"
     style="@style/MainTheme"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/btn_volume_up"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_alignBaseline="@+id/btn_volume_down"
-        android:layout_alignBottom="@+id/btn_volume_down"
-        android:layout_marginLeft="16dp"
-        android:layout_toRightOf="@+id/btn_volume_down"
-        android:text="@string/system_volume_up" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".20"
+        android:orientation="horizontal" >
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_exit"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/btn_volume_up"
-        android:layout_below="@+id/btn_volume_up"
-        android:layout_marginTop="75dp"
-        android:text="@string/system_home" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".20"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <Button
+	        android:id="@+id/btn_volume_up"
+	        android:layout_width="120dp"
+	        android:layout_height="60dp"
+	        android:text="@string/system_volume_up" />
+        <Button
+	        android:id="@+id/btn_volume_down"
+	        android:layout_width="120dp"
+	        android:layout_height="60dp"
+	        android:text="@string/system_volume_down" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_alignBaseline="@+id/btn_exit"
-        android:layout_alignBottom="@+id/btn_exit"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="32dp"
-        android:text="@string/system_back" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight=".30"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <Button
+	        android:id="@+id/btn_exit"
+	        android:layout_width="120dp"
+	        android:layout_height="60dp"
+	        android:text="@string/system_home" />
+       <Button
+	        android:id="@+id/btn_back"
+	        android:layout_width="120dp"
+	        android:layout_height="60dp"
+	        android:text="@string/system_back" />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_weight=".20"
+        android:orientation="horizontal" >
+	    <Button
+	        android:id="@+id/btn_cursor"
+	        android:layout_width="120dp"
+	        android:layout_height="120dp"
+	        android:layout_centerInParent="true"
+	        android:background="@drawable/round_button"
+	        android:gravity="center_vertical|center_horizontal"
+	        android:text="M" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/btn_volume_down"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/btn_back"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="120dp"
-        android:text="@string/system_volume_down" />
 
-    <Button
-        android:id="@+id/btn_cursor"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/btn_exit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/round_button"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="M" />
-
-</RelativeLayout>
+</LinearLayout>
