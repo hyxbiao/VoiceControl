@@ -1,5 +1,6 @@
 package com.hyxbiao.voicecontrol.ui;
 
+import com.hyxbiao.voicecontrol.client.VoiceControlClient;
 import com.hyxbiao.voicecontrol.command.VoiceCommandManager;
 
 import android.app.Application;
@@ -7,6 +8,7 @@ import android.app.Application;
 public class MyApp extends Application{
 	
 	private VoiceCommandManager mCommandManager = null;
+	private VoiceControlClient mVoiceControlClient = null;
 	private String mServerIp = "127.0.0.1";
 
 	public VoiceCommandManager getCommandManager() {
@@ -23,6 +25,14 @@ public class MyApp extends Application{
 
 	public void setServerIp(String mServerIp) {
 		this.mServerIp = mServerIp;
+	}
+
+	public VoiceControlClient getVoiceControlClient() {
+		return mVoiceControlClient;
+	}
+
+	public void setVoiceControlClient(VoiceControlClient mVoiceControlClient) {
+		this.mVoiceControlClient = mVoiceControlClient;
 	}
 	
 	

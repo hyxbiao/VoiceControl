@@ -1,12 +1,9 @@
 package com.hyxbiao.voicecontrol.client;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -14,7 +11,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.hyxbiao.voicecontrol.protocol.Packet;
 import com.hyxbiao.voicecontrol.ui.MyApp;
 
 public class VoiceControlClient implements Runnable {
@@ -33,7 +29,8 @@ public class VoiceControlClient implements Runnable {
 	private String mIp = "192.168.1.102";
 	private int mPort = 8300;
 	
-	private Socket mSocket;
+	private Socket mSocket = null;
+	private boolean mLongConnection = true;
 	private MyApp mMyApp = null;
 	private Bundle mBundle;
 	
@@ -42,13 +39,27 @@ public class VoiceControlClient implements Runnable {
 		mMyApp = (MyApp) context;
 		mIp = mMyApp.getServerIp();
 	}
+	private void connectServer() throws UnknownHostException, IOException {
+		if(mSocket != null && !mSocket.isConnected()) {
+			mSocket = null;
+		}
+		if(mSocket == null) {
+			Log.d(TAG, "[connectServer] ip: " + mIp + ", port: " + mPort);
+			mSocket = new Socket(mIp, mPort);
+		}
+	}
+	private void closeServer() throws IOException {
+		if(!mLongConnection && mSocket != null) {
+			Log.d(TAG, "[closeServer]");
+			mSocket.close();			
+			mSocket = null;
+		}
+	}
 	@Override
 	public void run() {
 		
 		try {
-//			mIp = InetAddress.getLocalHost().getHostAddress();
-			Log.d(TAG, "ip: " + mIp + ", port: " + mPort);
-			mSocket = new Socket(mIp, mPort);
+			connectServer();
 			DataOutputStream out = new DataOutputStream(mSocket.getOutputStream());
 			out.writeInt(mBundle.getInt(KEY_VERSION));
 			out.writeInt(mBundle.getInt(KEY_TARGET));
@@ -69,7 +80,8 @@ public class VoiceControlClient implements Runnable {
 			BufferedReader in = new BufferedReader(new InputStreamReader(mSocket.getInputStream()));
 			String msg = in.readLine();
 			Log.d(TAG, "server response: " + msg);
-			mSocket.close();
+			closeServer();
+			
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 			Log.w(TAG, "UnknownHostException: " + e);
